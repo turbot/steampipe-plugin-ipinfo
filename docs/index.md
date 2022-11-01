@@ -24,7 +24,7 @@ select
   city,
   country_name
 from
-  ipinfo_ip
+  ipinfo_ip;
 ```
 
 ```
@@ -45,7 +45,7 @@ select
 from
   ipinfo_ip
 where
-  ip = '8.8.8.8'
+  ip = '8.8.8.8';
 ```
 
 ```

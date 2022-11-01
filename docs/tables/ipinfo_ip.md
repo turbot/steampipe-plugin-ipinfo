@@ -14,7 +14,7 @@ select
   postal,
   country_name
 from
-  ipinfo_ip
+  ipinfo_ip;
 ```
 
 ### Info for a specific IP address
@@ -29,7 +29,7 @@ select
 from
   ipinfo_ip
 where
-  ip = '1.1.1.1'
+  ip = '1.1.1.1';
 ```
 
 ### Info for a collection of IP addresses
@@ -44,7 +44,7 @@ select
 from
   ipinfo_ip
 where
-  ip in ('1.1.1.1', '8.8.8.8')
+  ip in ('1.1.1.1', '8.8.8.8');
 ```
 
 ### Info for IP addresses in a CSV file
@@ -77,7 +77,7 @@ select
 from
   ipinfo_ip
 where
-  ipinfo_ip.ip in (select ip from ips)
+  ipinfo_ip.ip in (select ip from ips);
 ```
 
 Unfortunately, this simpler query _does not work_ because the Postgres planner
@@ -92,7 +92,7 @@ select
 from
   ipinfo_ip
 where
-  ipinfo_ip.ip in (select address::inet from my_ips)
+  ipinfo_ip.ip in (select address::inet from my_ips);
 ```
 
 Unfortunately, this simpler query _does not work_ because the Postgres planner
@@ -108,5 +108,5 @@ from
   csv.my_ips as i,
   ipinfo_ip
 where
-  ipinfo_ip.ip = i.address
+  ipinfo_ip.ip = i.address;
 ```

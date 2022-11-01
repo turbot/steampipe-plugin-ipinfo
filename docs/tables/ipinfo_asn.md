@@ -20,7 +20,7 @@ select
 from
   ipinfo_asn
 where
-  asn = 'AS7922'
+  asn = 'AS7922';
 ```
 
 ### IPv4 prefixes managed by an ASN
@@ -33,5 +33,5 @@ from
   ipinfo_asn,
   jsonb_array_elements(prefixes) as p
 where
-  asn = 'AS7922'
+  asn = 'AS7922';
 ```

@@ -7,14 +7,10 @@ import (
 
 type ipinfoConfig struct {
 	Token        *string `cty:"token"`
-	Organization *string `cty:"organization"`
 }
 
 var ConfigSchema = map[string]*schema.Attribute{
 	"token": {
-		Type: schema.TypeString,
-	},
-	"organization": {
 		Type: schema.TypeString,
 	},
 }

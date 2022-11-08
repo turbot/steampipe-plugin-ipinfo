@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/ipinfo/go/v2 v2.8.0
-	github.com/turbot/steampipe-plugin-sdk/v4 v4.1.7
+	github.com/turbot/steampipe-plugin-sdk/v4 v4.1.8
 )
 
 require (

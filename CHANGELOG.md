@@ -1,3 +1,9 @@
+## v0.0.2 [202-11-10]
+
+_Bug fixes_
+
+- Fixed link to ipinfo.io in index document.
+
 ## v0.0.1 [2022-11-02]
 
 _What's new?_

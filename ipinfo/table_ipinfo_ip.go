@@ -4,9 +4,9 @@ import (
 	"context"
 	"net"
 
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func tableIPInfoIP(ctx context.Context) *plugin.Table {
@@ -53,8 +53,8 @@ func listIP(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (in
 	}
 
 	ipStr := ""
-	if d.KeyColumnQuals["ip"] != nil {
-		ipStr = d.KeyColumnQuals["ip"].GetInetValue().GetAddr()
+	if d.EqualsQuals["ip"] != nil {
+		ipStr = d.EqualsQuals["ip"].GetInetValue().GetAddr()
 		plugin.Logger(ctx).Debug("ipinfo_ip.listIP", "ipStr", ipStr)
 	}
 

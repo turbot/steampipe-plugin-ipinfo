@@ -3,9 +3,9 @@ package ipinfo
 import (
 	"context"
 
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func tableIPInfoAsn(ctx context.Context) *plugin.Table {
@@ -46,7 +46,7 @@ func listAsn(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (i
 		return nil, err
 	}
 
-	asn := d.KeyColumnQuals["asn"].GetStringValue()
+	asn := d.EqualsQuals["asn"].GetStringValue()
 	plugin.Logger(ctx).Debug("ipinfo_asn.listAsn", "asn", asn)
 
 	details, err := conn.GetASNDetails(asn)

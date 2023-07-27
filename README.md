@@ -6,7 +6,7 @@ Use SQL to IP address information using [ipinfo.io](https://ipinfo.io).
 
 - **[Get started →](https://hub.steampipe.io/plugins/turbot/ipinfo)**
 - Documentation: [Table definitions & examples](https://hub.steampipe.io/plugins/turbot/ipinfo/tables)
-- Community: [Slack Channel](https://steampipe.io/community/join)
+- Community: [Join #steampipe on Slack →](https://turbot.com/community/join)
 - Get involved: [Issues](https://github.com/turbot/steampipe-plugin-ipinfo/issues)
 
 ## Quick start

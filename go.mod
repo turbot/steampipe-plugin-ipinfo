@@ -3,7 +3,7 @@ module github.com/turbot/steampipe-plugin-ipinfo
 go 1.21
 
 require (
-	github.com/ipinfo/go/v2 v2.8.0
+	github.com/ipinfo/go/v2 v2.9.4
 	github.com/turbot/steampipe-plugin-sdk/v5 v5.6.2
 )
 

@@ -1,15 +1,19 @@
 ---
-title: "Steampipe Table: ipinfo_asn - Query OCI IPinfo ASN using SQL"
-description: "Allows users to query Autonomous System Numbers (ASNs) in OCI IPinfo, providing insights into network routing and traffic patterns."
+title: "Steampipe Table: ipinfo_asn - Query IPinfo ASN using SQL"
+description: "Allows users to query Autonomous System Numbers (ASNs) in IPinfo, providing insights into network routing and traffic patterns."
 ---
 
-# Table: ipinfo_asn - Query OCI IPinfo ASN using SQL
+# Table: ipinfo_asn - Query IPinfo ASN using SQL
 
 Autonomous System Numbers (ASNs) are a crucial part of the internet's routing infrastructure. They are used by internet service providers and large organizations to manage their network routes and traffic. With ASNs, users can understand how internet traffic is routed and identify the networks responsible for specific internet activities.
 
 ## Table Usage Guide
 
-The `ipinfo_asn` table provides detailed insights into Autonomous System Numbers (ASNs) within OCI IPinfo. As a network engineer or IT professional, explore ASN-specific details through this table, including the network prefix, name, country, and associated metadata. Utilize it to uncover information about network routing, such as the routes used by an internet service provider or a large organization, and the traffic patterns of these networks.
+The `ipinfo_asn` table provides detailed insights into Autonomous System Numbers (ASNs) within IPinfo. As a network engineer or IT professional, explore ASN-specific details through this table, including the network prefix, name, country, and associated metadata. Utilize it to uncover information about network routing, such as the routes used by an internet service provider or a large organization, and the traffic patterns of these networks.
+
+**Important Notes**
+- This table requires a paid plan.
+- Because ASNs cannot be listed in full, the `ipinfo_asn` table requires the `asn` field to be specified in all queries, defining the ASN to lookup.
 
 ## Examples
 

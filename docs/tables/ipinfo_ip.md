@@ -16,7 +16,18 @@ The `ipinfo_ip` table provides insights into IP addresses data within IPinfo. As
 ### Info for your IP address
 Discover the geographical details associated with your IP address, such as city, region, postal code, and country. This can be useful for understanding the location data linked to your online activities.
 
-```sql
+```sql+postgres
+select
+  ip,
+  city,
+  region,
+  postal,
+  country_name
+from
+  ipinfo_ip;
+```
+
+```sql+sqlite
 select
   ip,
   city,
@@ -30,7 +41,20 @@ from
 ### Info for a specific IP address
 Explore which city, region, and country a specific IP address is associated with. This can be useful for understanding the geographic distribution of your users or for detecting potentially suspicious activity.
 
-```sql
+```sql+postgres
+select
+  ip,
+  city,
+  region,
+  postal,
+  country_name
+from
+  ipinfo_ip
+where
+  ip = '1.1.1.1';
+```
+
+```sql+sqlite
 select
   ip,
   city,
@@ -46,7 +70,20 @@ where
 ### Info for a collection of IP addresses
 Explore the geographical locations associated with a set of IP addresses. This query is useful for understanding the distribution of users or network requests across different regions.
 
-```sql
+```sql+postgres
+select
+  ip,
+  city,
+  region,
+  postal,
+  country_name
+from
+  ipinfo_ip
+where
+  ip in ('1.1.1.1', '8.8.8.8');
+```
+
+```sql+sqlite
 select
   ip,
   city,
@@ -71,7 +108,7 @@ address,provider
 Then it can be joined with the `ipinfo_ip` table to gather information:
 
 
-```sql
+```sql+postgres
 -- Query IPs from the CSV first, to force the planner
 with ips as (
   select
@@ -93,9 +130,13 @@ where
   ipinfo_ip.ip in (select ip from ips);
 ```
 
+```sql+sqlite
+Error: SQLite does not support CIDR operations.
+```
+
 Unfortunately, this simpler query _does not work_ because the Postgres planner
 tries to scan the ipinfo_ip table:
-```sql
+```sql+postgres
 select
   ip,
   city,
@@ -108,9 +149,13 @@ where
   ipinfo_ip.ip in (select address::inet from my_ips);
 ```
 
+```sql+sqlite
+Error: SQLite does not support CIDR operations.
+```
+
 Unfortunately, this simpler query _does not work_ because the Postgres planner
 tries to scan the ipinfo_ip table:
-```sql
+```sql+postgres
 select
   ip,
   city,
@@ -119,6 +164,20 @@ select
   country_name
 from
   csv.my_ips as i,
+  ipinfo_ip
+where
+  ipinfo_ip.ip = i.address;
+```
+
+```sql+sqlite
+select
+  ip,
+  city,
+  region,
+  postal,
+  country_name
+from
+  csv_my_ips as i,
   ipinfo_ip
 where
   ipinfo_ip.ip = i.address;

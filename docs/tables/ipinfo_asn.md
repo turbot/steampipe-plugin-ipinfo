@@ -20,7 +20,18 @@ The `ipinfo_asn` table provides detailed insights into Autonomous System Numbers
 ### Info about an ASN
 Gain insights into the specifics of a particular Autonomous System Number (ASN) including its name, country of origin, and the number of IP addresses it has. This is useful for network administrators and cybersecurity professionals to understand the scale and geographical location of a specific ASN.
 
-```sql
+```sql+postgres
+select
+  name,
+  country_name,
+  num_ips
+from
+  ipinfo_asn
+where
+  asn = 'AS7922';
+```
+
+```sql+sqlite
 select
   name,
   country_name,
@@ -34,13 +45,24 @@ where
 ### IPv4 prefixes managed by an ASN
 Explore which IPv4 prefixes are managed by a specific Autonomous System Number (ASN). This can be useful to understand the scope of networks managed by an ASN and potentially identify patterns or anomalies.
 
-```sql
+```sql+postgres
 select
   p ->> 'netblock' as netblock,
   p ->> 'name' as name
 from
   ipinfo_asn,
   jsonb_array_elements(prefixes) as p
+where
+  asn = 'AS7922';
+```
+
+```sql+sqlite
+select
+  json_extract(p.value, '$.netblock') as netblock,
+  json_extract(p.value, '$.name') as name
+from
+  ipinfo_asn,
+  json_each(prefixes) as p
 where
   asn = 'AS7922';
 ```

@@ -91,7 +91,4 @@ connection "ipinfo" {
 Environment variables are also available as an alternate configuration method:
 * `IPINFO_TOKEN`
 
-## Get involved
 
-- Open source: https://github.com/turbot/steampipe-plugin-ipinfo
-- Community: [Join #steampipe on Slack →](https://turbot.com/community/join)

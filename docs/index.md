@@ -8,6 +8,7 @@ short_name: "ipinfo"
 description: "Steampipe plugin to query IP address information from ipinfo.io."
 og_description: "Query ipinfo.io with SQL! Open source CLI. No DB required."
 og_image: "/images/plugins/turbot/ipinfo-social-graphic.png"
+engines: ["steampipe", "sqlite", "postgres", "export"]
 ---
 
 # ipinfo.io + Steampipe

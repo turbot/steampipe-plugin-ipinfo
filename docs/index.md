@@ -8,13 +8,14 @@ short_name: "ipinfo"
 description: "Steampipe plugin to query IP address information from ipinfo.io."
 og_description: "Query ipinfo.io with SQL! Open source CLI. No DB required."
 og_image: "/images/plugins/turbot/ipinfo-social-graphic.png"
+engines: ["steampipe", "sqlite", "postgres", "export"]
 ---
 
 # ipinfo.io + Steampipe
 
 [ipinfo.io](https://ipinfo.io) is an API for IP address information (e.g. location).
 
-[Steampipe](https://steampipe.io) is an open source CLI to instantly query cloud APIs using SQL.
+[Steampipe](https://steampipe.io) is an open-source zero-ETL engine to instantly query cloud APIs using SQL.
 
 Query your own IP:
 
@@ -90,7 +91,4 @@ connection "ipinfo" {
 Environment variables are also available as an alternate configuration method:
 * `IPINFO_TOKEN`
 
-## Get involved
 
-- Open source: https://github.com/turbot/steampipe-plugin-ipinfo
-- Community: [Join #steampipe on Slack →](https://turbot.com/community/join)

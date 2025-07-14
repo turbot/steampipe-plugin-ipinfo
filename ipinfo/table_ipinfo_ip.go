@@ -39,7 +39,7 @@ func tableIPInfoIP(ctx context.Context) *plugin.Table {
 			{Name: "abuse", Type: proto.ColumnType_JSON, Description: "Abuse contact information. Paid plans only."},
 			{Name: "carrier", Type: proto.ColumnType_JSON, Description: "Carrier contact information. Paid plans only."},
 			{Name: "company", Type: proto.ColumnType_JSON, Description: "Company information. Paid plans only."},
-			{Name: "domains", Type: proto.ColumnType_JSON, Description: "Domains associated with the IP. Pain plans only."},
+			{Name: "domains", Type: proto.ColumnType_JSON, Description: "Domains associated with the IP. Paid plans only."},
 			{Name: "privacy", Type: proto.ColumnType_JSON, Description: "Privacy data (e.g. VPC). Paid plans only."},
 		},
 	}

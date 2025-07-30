@@ -5,7 +5,7 @@ go 1.24
 toolchain go1.24.1
 
 require (
-	github.com/ipinfo/go/v2 v2.8.0
+	github.com/ipinfo/go/v2 v2.11.0
 	github.com/turbot/steampipe-plugin-sdk/v5 v5.13.0
 )
 

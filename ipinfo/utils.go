@@ -7,15 +7,15 @@ import (
 
 	"github.com/ipinfo/go/v2/ipinfo"
 
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin/transform"
 )
 
-func connect(_ context.Context, d *plugin.QueryData) (*ipinfo.Client, error) {
+func connect(ctx context.Context, d *plugin.QueryData) (*ipinfo.Client, error) {
 
 	// Load connection from cache, which preserves throttling protection etc
 	cacheKey := "ipinfo"
-	if cachedData, ok := d.ConnectionManager.Cache.Get(cacheKey); ok {
+	if cachedData, ok := d.ConnectionCache.Get(ctx, cacheKey); ok {
 		return cachedData.(*ipinfo.Client), nil
 	}
 
@@ -31,7 +31,7 @@ func connect(_ context.Context, d *plugin.QueryData) (*ipinfo.Client, error) {
 	conn := ipinfo.NewClient(nil, nil, token)
 
 	// Save to cache
-	d.ConnectionManager.Cache.Set(cacheKey, conn)
+	_ = d.ConnectionCache.Set(ctx, cacheKey, conn)
 
 	return conn, nil
 }

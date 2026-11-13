@@ -1,3 +1,14 @@
+## v1.3.0 [2026-11-13]
+
+_Bug fixes_
+
+- Fixed the `asn` and `is_eu` columns in the `ipinfo_ip` table, which always returned `null`. `asn` now returns ASN details when a token is set. ([#59](https://github.com/turbot/steampipe-plugin-ipinfo/pull/59))
+
+_Dependencies_
+
+- Recompiled plugin with [steampipe-plugin-sdk v6.2.1](https://github.com/turbot/steampipe-plugin-sdk/blob/develop/CHANGELOG.md#v621-2026-11-12), which lowers plugin memory use, with the query cache fixes for missing or duplicate rows from [v6.2.0](https://github.com/turbot/steampipe-plugin-sdk/blob/develop/CHANGELOG.md#v620-2026-11-11). ([#78](https://github.com/turbot/steampipe-plugin-ipinfo/pull/78))
+- Recompiled plugin with Go version `1.26`. ([#63](https://github.com/turbot/steampipe-plugin-ipinfo/pull/63))
+
 ## v1.2.0 [2025-10-13]
 
 _Dependencies_
